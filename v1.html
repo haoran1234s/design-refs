@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>审美参考库 · 给前端工程师的 60 个高质量站点</title>
+<meta name="description" content="国外高质量网页设计参考、动效技术栈、可直接用的模板，以及一条 6 周落地路线。">
+<meta name="theme-color" content="#080808">
+<meta property="og:type" content="website">
+<meta property="og:title" content="审美参考库 · 给前端工程师的 60 个高质量站点">
+<meta property="og:description" content="国外高质量网页设计参考、动效技术栈、可直接用的模板，以及一条 6 周落地路线。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23080808'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23d8ff4f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Noto+Serif+SC:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#080808;
+    --bg-soft:#0d0d0d;
+    --ink:#efece5;
+    --muted:#8a857b;
+    --line:rgba(239,236,229,.13);
+    --accent:#d8ff4f;
+    --max:1180px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Inter Tight",-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    font-weight:300;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--accent);color:#000}
+
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 32px}
+  .mono{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+
+  /* progress */
+  .progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--accent);z-index:100;transition:width .1s linear}
+
+  /* nav */
+  .nav{
+    position:sticky;top:0;z-index:60;
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    background:rgba(8,8,8,.72);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{display:flex;align-items:center;gap:12px;font-size:13px;letter-spacing:.02em}
+  .brand .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px rgba(216,255,79,.7)}
+  .brand .sub{color:var(--muted);font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+  .nav-links{display:flex;gap:26px;align-items:center}
+  .nav-links a{font-size:12px;color:var(--muted);letter-spacing:.04em;transition:color .25s}
+  .nav-links a:hover{color:var(--ink)}
+  .copy-btn{
+    border:1px solid var(--line);background:transparent;color:var(--ink);
+    font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.14em;
+    padding:8px 14px;border-radius:999px;cursor:pointer;transition:all .25s;text-transform:uppercase;
+  }
+  .copy-btn:hover{border-color:var(--accent);color:var(--accent)}
+
+  /* hero */
+  .hero{position:relative;padding:132px 0 96px;overflow:hidden}
+  .hero::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:linear-gradient(to right,rgba(239,236,229,.05) 1px,transparent 1px);
+    background-size:calc(100%/6) 100%;
+    -webkit-mask-image:linear-gradient(to bottom,transparent,#000 18%,#000 78%,transparent);
+    mask-image:linear-gradient(to bottom,transparent,#000 18%,#000 78%,transparent);
+  }
+  .hero::after{
+    content:"";position:absolute;inset:-25%;pointer-events:none;
+    background:radial-gradient(620px circle at var(--mx,50%) var(--my,35%),rgba(216,255,79,.07),transparent 62%);
+    transition:background .2s;
+  }
+  .hero .wrap{position:relative;z-index:1}
+  .kicker{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+  h1{
+    margin:28px 0 0;
+    font-size:clamp(42px,7.4vw,96px);
+    line-height:.98;letter-spacing:-.035em;font-weight:400;
+  }
+  h1 em{
+    font-family:"Noto Serif SC","Songti SC","STSong","Source Han Serif SC","SimSun",Georgia,serif;
+    font-style:normal;font-weight:400;color:var(--accent);
+    letter-spacing:.01em;white-space:nowrap;
+  }
+  .lede{
+    margin-top:34px;max-width:56ch;font-size:16px;line-height:1.8;color:#b9b4aa;
+  }
+  .lede b{color:var(--ink);font-weight:500}
+  .hero-meta{display:flex;gap:44px;margin-top:56px;padding-top:24px;border-top:1px solid var(--line);flex-wrap:wrap}
+  .hero-meta div{display:flex;flex-direction:column;gap:4px}
+  .hero-meta .k{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.18em;color:var(--muted);text-transform:uppercase}
+  .hero-meta .v{font-size:15px;color:var(--ink)}
+
+  /* sections */
+  section{padding:92px 0;border-top:1px solid var(--line);position:relative;scroll-margin-top:86px}
+  .sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:44px;flex-wrap:wrap}
+  .sec-head .left{display:flex;flex-direction:column;gap:14px}
+  .sec-num{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.2em;color:var(--accent)}
+  h2{font-size:clamp(26px,3.6vw,42px);letter-spacing:-.025em;font-weight:400;line-height:1.15}
+  .sec-note{max-width:44ch;font-size:13px;color:var(--muted);line-height:1.7;text-align:right}
+
+  /* rows */
+  .rows{list-style:none;border-top:1px solid var(--line)}
+  .row{
+    display:grid;grid-template-columns:52px 1fr 210px;gap:28px;align-items:start;
+    padding:22px 0;border-bottom:1px solid var(--line);
+    transition:background .35s ease,padding .35s ease;
+  }
+  .row:hover{background:rgba(239,236,229,.025)}
+  .row .idx{font-family:"JetBrains Mono",monospace;font-size:11px;color:#575349;padding-top:6px;transition:color .3s}
+  .row:hover .idx{color:var(--accent)}
+  .row .name{font-size:19px;font-weight:500;letter-spacing:-.01em;display:inline-block;position:relative}
+  .row .name::after{content:"";position:absolute;left:0;bottom:-2px;width:0;height:1px;background:var(--accent);transition:width .4s cubic-bezier(.16,1,.3,1)}
+  .row:hover .name::after{width:100%}
+  .row .desc{margin-top:7px;font-size:13.5px;line-height:1.75;color:#948e83;max-width:64ch}
+  .row .go{display:flex;justify-content:flex-end;align-items:center;gap:8px;font-family:"JetBrains Mono",monospace;font-size:10.5px;color:#7a7469;letter-spacing:.02em;padding-top:6px;transition:color .3s}
+  .row .go .arrow{transition:transform .35s cubic-bezier(.16,1,.3,1)}
+  .row:hover .go{color:var(--accent)}
+  .row:hover .go .arrow{transform:translate(3px,-3px)}
+
+  /* featured cards */
+  .featured{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:1px}
+  .card{background:var(--bg);padding:34px 32px 30px;display:flex;flex-direction:column;gap:10px;min-height:196px;transition:background .4s}
+  .card:hover{background:var(--bg-soft)}
+  .card .card-kicker{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  .card h3{font-size:26px;font-weight:400;letter-spacing:-.02em;transition:color .3s}
+  .card:hover h3{color:var(--accent)}
+  .card p{font-size:13px;line-height:1.7;color:var(--muted);max-width:40ch}
+  .card .card-go{margin-top:auto;font-family:"JetBrains Mono",monospace;font-size:10px;color:#6b665c;letter-spacing:.04em}
+  .card:hover .card-go{color:var(--accent)}
+
+  /* weeks */
+  .weeks{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .week{background:var(--bg);padding:28px 26px;display:flex;flex-direction:column;gap:12px;transition:background .4s}
+  .week:hover{background:var(--bg-soft)}
+  .week .w{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-size:34px;line-height:1;color:var(--accent)}
+  .week h3{font-size:16px;font-weight:500;letter-spacing:-.01em}
+  .week p{font-size:13px;line-height:1.7;color:var(--muted)}
+
+  /* pitfalls */
+  .pits{display:grid;grid-template-columns:repeat(2,1fr);gap:0 48px;margin-top:48px}
+  .pit{display:grid;grid-template-columns:22px 1fr;gap:12px;padding:16px 0;border-bottom:1px solid var(--line)}
+  .pit .x{color:#ff6b57;font-family:"JetBrains Mono",monospace;font-size:13px;line-height:1.7}
+  .pit p{font-size:13.5px;line-height:1.75;color:#b9b4aa}
+  .pit b{color:var(--ink);font-weight:500}
+
+  /* footer */
+  footer{padding:88px 0 64px;border-top:1px solid var(--line)}
+  .quote{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-size:clamp(26px,3.4vw,40px);letter-spacing:-.01em;line-height:1.25}
+  .quote span{color:var(--accent)}
+  .foot-meta{display:flex;justify-content:space-between;margin-top:48px;padding-top:24px;border-top:1px solid var(--line);font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.14em;color:#575349;text-transform:uppercase;flex-wrap:wrap;gap:12px}
+
+  /* toast */
+  .toast{
+    position:fixed;left:50%;bottom:36px;transform:translate(-50%,20px);
+    background:var(--accent);color:#000;font-family:"JetBrains Mono",monospace;
+    font-size:11px;letter-spacing:.08em;padding:12px 20px;border-radius:999px;
+    opacity:0;pointer-events:none;transition:all .35s cubic-bezier(.16,1,.3,1);z-index:120;
+  }
+  .toast.show{opacity:1;transform:translate(-50%,0)}
+
+  /* reveal */
+  [data-reveal]{opacity:0;transform:translateY(16px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+  [data-reveal].in{opacity:1;transform:none}
+  .hero-anim{opacity:0;transform:translateY(18px);animation:rise 1s cubic-bezier(.16,1,.3,1) forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+
+  @media (max-width:900px){
+    .wrap{padding:0 22px}
+    .nav-links a:not(.copy-btn){display:none}
+    .hero{padding:96px 0 72px}
+    .row{grid-template-columns:34px 1fr;gap:14px}
+    .row .go{grid-column:2;justify-content:flex-start;padding-top:10px}
+    .featured{grid-template-columns:1fr}
+    .weeks{grid-template-columns:1fr}
+    .pits{grid-template-columns:1fr}
+    .sec-note{text-align:left}
+    .hero-meta{gap:28px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    [data-reveal]{opacity:1;transform:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <div class="brand">
+      <span class="dot"></span>
+      <span>Taste Library</span>
+      <span class="sub">/ 2026</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#galleries">画廊</a>
+      <a href="#studios">工作室</a>
+      <a href="#stack">技术栈</a>
+      <a href="#templates">模板</a>
+      <a href="#basics">基本功</a>
+      <a href="#plan">路线</a>
+      <button class="copy-btn" id="copyBtn">Copy list</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" style="border-top:none">
+    <div class="wrap">
+      <p class="kicker hero-anim" style="animation-delay:.05s">Reference Library / Frontend &amp; Motion</p>
+      <h1 class="hero-anim" style="animation-delay:.14s">
+        审美不是天赋，<br>
+        是<em>素材量</em>和<em>拆解力</em>。
+      </h1>
+      <p class="lede hero-anim" style="animation-delay:.24s">
+        60+ 个国外高质量参考源，按「看什么、学什么」整理，不是丢一堆链接。
+        给要做<b>一眼看得出水平</b>的个人站的前端工程师 —— 从画廊、工作室、动效技术栈，到能直接跑起来的模板，最后附一条 6 周落地路线。
+      </p>
+      <div class="hero-meta hero-anim" style="animation-delay:.34s">
+        <div><span class="k">Sources</span><span class="v" id="srcCount">62</span></div>
+        <div><span class="k">Categories</span><span class="v">05</span></div>
+        <div><span class="k">Timeline</span><span class="v">6 weeks</span></div>
+        <div><span class="k">Rule</span><span class="v">One signature move</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="galleries">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="left">
+          <span class="sec-num">01 / GALLERIES</span>
+          <h2>先把眼睛喂饱</h2>
+        </div>
+        <p class="sec-note">每天刷 20 分钟，但别只存图 —— 每存一张，写一句「它为什么好」。</p>
+      </div>
+      <ul class="rows" data-list="galleries"></ul>
+    </div>
+  </section>
+
+  <section id="studios">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="left">
+          <span class="sec-num">02 / STUDIOS &amp; PEOPLE</span>
+          <h2>值得逐帧拆的站</h2>
+        </div>
+        <p class="sec-note">打开 DevTools，关掉图片，只看布局；再打开动效面板，看它用了什么。</p>
+      </div>
+      <div class="featured" data-featured data-reveal></div>
+      <ul class="rows" data-list="studios"></ul>
+    </div>
+  </section>
+
+  <section id="stack">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="left">
+          <span class="sec-num">03 / MOTION STACK</span>
+          <h2>按学习顺序排的技术栈</h2>
+        </div>
+        <p class="sec-note">先 GSAP + Lenis，再考虑 3D。顺序反了会浪费两个月。</p>
+      </div>
+      <ul class="rows" data-list="tech"></ul>
+    </div>
+  </section>
+
+  <section id="templates">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="left">
+          <span class="sec-num">04 / TEMPLATES</span>
+          <h2>能直接跑的起点</h2>
+        </div>
+        <p class="sec-note">模板用来省结构，不用来省审美。版式和动效至少重做一层。</p>
+      </div>
+      <ul class="rows" data-list="templates"></ul>
+    </div>
+  </section>
+
+  <section id="basics">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="left">
+          <span class="sec-num">05 / FUNDAMENTALS</span>
+          <h2>决定上限的东西</h2>
+        </div>
+        <p class="sec-note">动效可以学，品味只能养。这部分最慢，但最值钱。</p>
+      </div>
+      <ul class="rows" data-list="basics"></ul>
+    </div>
+  </section>
+
+  <section id="plan">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="left">
+          <span class="sec-num">06 / PLAN</span>
+          <h2>6 周，从 0 到能发出去</h2>
+        </div>
+        <p class="sec-note">目标不是「做完」，是「发出去之后有人主动找你」。</p>
+      </div>
+      <div class="weeks" data-weeks data-reveal></div>
+
+      <div class="pits" data-pits></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="quote">Taste is just <span>organized attention</span>.</p>
+    <div class="foot-meta">
+      <span>Built as a starting point, not a finish line</span>
+      <span id="footCount">62 sources</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast">已复制全部链接</div>
+
+<script>
+const galleries = [
+  {n:"Awwwards", u:"https://www.awwwards.com/", d:"全球网页设计奖项。别只看截图 —— 进 case study 看技术栈和动效理由，SOTD 页面能直接拆结构。"},
+  {n:"Godly", u:"https://godly.website/", d:"策展极严，选的是「高级」不是「热闹」。定整体基调先刷它，能少走很多弯路。"},
+  {n:"Siteinspire", u:"https://www.siteinspire.com/", d:"按风格和类型筛选，界面克制。建 moodboard 效率最高，适合按行业找参考。"},
+  {n:"Land-book", u:"https://land-book.com/", d:"Landing page 专门店。看首屏信息层级、CTA 位置、滚动节奏怎么排。"},
+  {n:"Httpster", u:"https://httpster.net/", d:"老牌画廊，排版和平面感强。想做编辑风格的博客，从这里找版式。"},
+  {n:"Minimal Gallery", u:"https://minimal.gallery/", d:"极简专题。专治「什么都想放」，练留白和字距最好的地方。"},
+  {n:"Refero", u:"https://refero.design/", d:"真实产品界面截图库。做产品型作品集、写 case study 必看。"},
+  {n:"Curated.design", u:"https://www.curated.design/", d:"网页与产品混合策展，更新稳定，质量线比较齐。"},
+  {n:"Dark Mode Design", u:"https://www.darkmodedesign.com/", d:"暗色专题。要做暗色站，先看别人怎么处理对比度和层级。"},
+  {n:"Navbar Gallery", u:"https://navbar.gallery/", d:"只收导航。导航做不好，整站气质直接塌。"},
+  {n:"Footer", u:"https://www.footer.design/", d:"只收页脚。最容易被忽略，也最容易做出记忆点的地方。"},
+  {n:"Typewolf", u:"https://www.typewolf.com/", d:"字体搭配与趋势，附替代字体建议，看完就能落地。"},
+  {n:"Fonts In Use", u:"https://fontsinuse.com/", d:"真实项目里的字体使用与排版细节，比字体站更有上下文。"},
+  {n:"The Brand Identity", u:"https://the-brandidentity.com/", d:"品牌视觉案例。审美的上游是品牌设计，不是网页模板。"},
+  {n:"BP&O", u:"https://bpando.org/", d:"品牌与包装评论，看别人怎么用一段话讲清设计逻辑 —— 写 case study 也用得上。"}
+];
+
+const featured = [
+  {n:"Active Theory", u:"https://activetheory.net/", k:"WebGL / Narrative", d:"3D 叙事的天花板。重点看它怎么让 WebGL 承载信息，而不是当动态壁纸。"},
+  {n:"Locomotive", u:"https://locomotive.ca/", k:"Scroll / Rhythm", d:"滚动节奏与版式的教科书，Lenis 的娘家。想做「高级滚动」，先临摹它。"},
+  {n:"Lusion", u:"https://lusion.co/", k:"Render / Physics", d:"渲染质感和物理感极强。注意它为了性能做了多少减法 —— 这才是功力。"},
+  {n:"Basement Studio", u:"https://basement.studio/", k:"Minimal / Motion", d:"极简骨架 + 强动效，最适合个人站直接借鉴的一个。结构简单，质感拉满。"}
+];
+
+const studios = [
+  {n:"Unseen Studio", u:"https://unseen.co/", d:"转场与微交互的精度。页面之间的衔接几乎无感，值得逐帧看。"},
+  {n:"Dogstudio", u:"https://dogstudio.co/", d:"品牌叙事 + 交互。看它如何把客户故事拆成滚动章节。"},
+  {n:"Resn", u:"https://resn.co.nz/", d:"实验性互动。适合看「概念怎么落地成能用的页面」，而不是只停在 demo。"},
+  {n:"Hello Monday", u:"https://www.hellomonday.com/", d:"叙事型交互，节奏控制很稳。适合学「什么时候不动」。"},
+  {n:"Darkroom Engineering", u:"https://darkroom.engineering/", d:"工程化动效团队，Lenis 作者。代码层面值得读，不只是看效果。"},
+  {n:"Utsubo", u:"https://www.utsubo.co/", d:"日式排版与留白。字距、行高、留白的控制非常讲究。"},
+  {n:"Dennis Snellenberg", u:"https://dennissnellenberg.com/", d:"自由职业者个人站标杆。结构极简，但每个细节都打磨过。"},
+  {n:"Cyd Stumpel", u:"https://cydstumpel.nl/", d:"页面转场实战派（Barba / View Transitions），个人站里少见的完整度。"},
+  {n:"Elliott Mangham", u:"https://elliott.mangham.dev/", d:"作品集结构清晰，适合学「怎么讲项目」而不是怎么堆效果。"},
+  {n:"Bruno Simon", u:"https://bruno-simon.com/", d:"3D 驾车作品集，游戏化叙事的经典案例。注意它的加载策略。"},
+  {n:"14islands", u:"https://14islands.com/", d:"WebGL 与产品结合，克制的 3D 用法，商业项目可参考。"},
+  {n:"Merci-Michel", u:"https://merci-michel.com/", d:"游戏化交互。看它怎么把「玩法」变成浏览路径。"},
+  {n:"Unit9", u:"https://www.unit9.com/", d:"实验项目库，找灵感用。质量参差，但量足够大。"},
+  {n:"Build in Amsterdam", u:"https://www.buildinamsterdam.com/", d:"电商体验。看商业项目怎么同时兼顾转化率和美感。"},
+  {n:"Monks", u:"https://www.monks.com/", d:"商业顶级团队。看大项目怎么控节奏、怎么在品牌规范里做动效。"},
+  {n:"Code and Theory", u:"https://www.codeandtheory.com/", d:"创意与工程各占一半的团队。适合看「设计系统 + 动效规范」怎么共存。"}
+];
+
+const tech = [
+  {n:"GSAP", u:"https://gsap.com/", d:"动效事实标准。2025 年被 Webflow 收购后全部插件免费（SplitText / MorphSVG / ScrollSmoother），没有理由不用。"},
+  {n:"ScrollTrigger", u:"https://gsap.com/docs/v3/Plugins/ScrollTrigger/", d:"GSAP 的滚动编排。学会它，80% 的「高级滚动」你都能做。"},
+  {n:"Lenis", u:"https://lenis.darkroom.engineering/", d:"平滑滚动，十行接入，和 ScrollTrigger 配合是现在的标配。"},
+  {n:"Motion", u:"https://motion.dev/", d:"React 生态动效库（Framer Motion 后继）。布局动画和手势最省心。"},
+  {n:"Barba.js", u:"https://barba.js.org/", d:"传统多页站的页面转场方案，配合 GSAP 做进出场。"},
+  {n:"Swup", u:"https://swup.js.org/", d:"轻量页面转场，配置比 Barba 简单，适合博客。"},
+  {n:"View Transitions API", u:"https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API", d:"浏览器原生转场，2026 已可放心用。记得给不支持的浏览器做降级。"},
+  {n:"Three.js", u:"https://threejs.org/", d:"3D 基础。先啃场景 / 相机 / 材质三件套，别一上来就做粒子。"},
+  {n:"React Three Fiber", u:"https://docs.pmnd.rs/react-three-fiber", d:"Three.js 的 React 写法，配合 Drei 起步最快。"},
+  {n:"Theatre.js", u:"https://www.theatrejs.com/", d:"可视化时间轴。复杂动效编排比手写 timeline 快十倍，还能交给设计调。"},
+  {n:"Rive", u:"https://rive.app/", d:"状态机动画。按钮、图标、角色类交互动画的最佳格式，比 GIF 小一个量级。"},
+  {n:"Spline", u:"https://spline.design/", d:"快速搭 3D 场景并导出 Web 组件。适合做首屏，不适合做复杂交互。"},
+  {n:"Codrops", u:"https://tympanus.net/codrops/", d:"每周一个可抄的 demo，附源码和思路。最好的动效教材，没有之一。"},
+  {n:"The Book of Shaders", u:"https://thebookofshaders.com/", d:"着色器入门。想要「别人做不出来」的效果，早晚得会这个。"},
+  {n:"Shadertoy", u:"https://www.shadertoy.com/", d:"着色器案例库。看到好效果，来这里反推实现。"}
+];
+
+const templates = [
+  {n:"Once UI · Magic Portfolio", u:"https://github.com/once-ui-system/magic-portfolio", d:"Next.js 个人站模板，审美在线、开箱即用。改文案就能上线，性价比最高。"},
+  {n:"Magic UI · Portfolio", u:"https://github.com/magicuidesign/portfolio", d:"Next.js + Tailwind + shadcn，组件化程度高，适合二次开发。"},
+  {n:"Astro Paper", u:"https://github.com/satnaing/astro-paper", d:"博客首选。轻、快、SEO 干净，Markdown 写作体验好。"},
+  {n:"Astro Cactus", u:"https://github.com/chrismwilliams/astro-theme-cactus", d:"Astro 博客主题，细节打磨到位，暗色模式很舒服。"},
+  {n:"Astro Nano", u:"https://github.com/markhorn-dev/astro-nano", d:"极简单页，加载几乎瞬时。走「少即是多」路线就用它。"},
+  {n:"Fuwari", u:"https://github.com/saicaca/fuwari", d:"Astro 博客，中文排版友好，动效克制不油腻。"},
+  {n:"Vitesse", u:"https://github.com/antfu/vitesse", d:"antfu 的 Vite 模板。工程化和品味都在线，适合学结构而不是直接用。"},
+  {n:"Framer Marketplace", u:"https://www.framer.com/marketplace/", d:"设计质量最高的模板市场之一。即使不用，也能反推版式和动效逻辑。"},
+  {n:"Webflow Templates", u:"https://webflow.com/templates", d:"商业级模板库。看别人怎么组织 section、怎么写文案层级。"},
+  {n:"Cargo", u:"https://cargo.site/", d:"老牌作品集建站。很多设计师的站出自这里，适合找版式灵感。"}
+];
+
+const basics = [
+  {n:"Refactoring UI", u:"https://www.refactoringui.com/", d:"把「好看」拆成可执行规则：层级、间距、颜色、阴影。前端工程师最该读的一本。"},
+  {n:"Practical Typography", u:"https://practicaltypography.com/", d:"免费在线书。行高、字距、measure 讲得最清楚，看完能立刻改掉一半毛病。"},
+  {n:"Grid Systems", u:"https://www.amazon.com/dp/1568984559", d:"网格系统的经典。做编辑风格版式的底层功，比学十个动效库有用。"},
+  {n:"Are.na", u:"https://www.are.na/", d:"建自己的参考库，按主题分 channel。比浏览器收藏夹有用一百倍。"},
+  {n:"Savee", u:"https://savee.it/", d:"视觉素材库。每天存 5 张，写一句为什么，三个月眼力就变了。"},
+  {n:"Cosmos", u:"https://www.cosmos.so/", d:"更偏艺术与摄影的灵感库。用来养色彩和构图直觉。"}
+];
+
+const weeks = [
+  {w:"W1", t:"内容先行", d:"选 3 个项目写成 case study：问题 / 约束 / 你的方案 / 结果（有数字最好）。没有真实项目，就自己造一个完整需求。"},
+  {w:"W2", t:"版式系统", d:"定字阶（1.25 或 1.333）、8pt 间距、两色 + 一个强调色、12 栏网格。先把静态页做到「不丑」。"},
+  {w:"W3", t:"一个 signature", d:"只做一个记忆点：滚动叙事、3D 首屏，或文字动效。做透，别铺满全站。"},
+  {w:"W4", t:"性能与降级", d:"Lighthouse ≥ 90，移动端关掉重特效，prefers-reduced-motion 必须做。速度本身就是审美。"},
+  {w:"W5", t:"细节", d:"光标、hover、loading、404、OG 图、favicon、页面转场。这些决定「精致」而不是「好看」。"},
+  {w:"W6", t:"发布 + 复盘", d:"部署到 Vercel 或 Cloudflare，写一篇「我是怎么做的」。这篇文章本身就是第二个作品。"}
+];
+
+const pits = [
+  {b:"把炫技当水平", d:"招聘方看的是「你能不能解决问题」，不是 shader 数量。特效堆得越多，越像学生作业。"},
+  {b:"全站 WebGL", d:"移动端发烫、首屏三秒，访客直接关掉。3D 应该是开场，不是全程。"},
+  {b:"动效没有理由", d:"每个动效都该回答一个问题：引导注意力？表达层级？还是操作反馈？答不上就删掉。"},
+  {b:"模板原样上线", d:"一眼就能看出。至少重做版式和动效一层，否则不如不用。"},
+  {b:"只做桌面端", d:"超过一半的访客在手机上。移动端崩了，前面全白做。"},
+  {b:"忽略文案", d:"排版再好，写「欢迎来到我的个人网站」也会瞬间掉档。文案是审美的一部分。"}
+];
+
+function domain(u){
+  try{ return new URL(u).hostname.replace(/^www\./,""); }catch(e){ return u; }
+}
+
+function rowsHTML(list, start){
+  return list.map(function(it,i){
+    var idx = String(start + i).padStart(2,"0");
+    return '<li class="row" data-reveal>' +
+      '<span class="idx">'+idx+'</span>' +
+      '<div class="body">' +
+        '<a class="name" href="'+it.u+'" target="_blank" rel="noopener">'+it.n+'</a>' +
+        '<p class="desc">'+it.d+'</p>' +
+      '</div>' +
+      '<a class="go" href="'+it.u+'" target="_blank" rel="noopener"><span>'+domain(it.u)+'</span><span class="arrow">&#8599;</span></a>' +
+    '</li>';
+  }).join("");
+}
+
+document.querySelector('[data-list="galleries"]').innerHTML = rowsHTML(galleries,1);
+document.querySelector('[data-list="studios"]').innerHTML = rowsHTML(studios,5);
+document.querySelector('[data-list="tech"]').innerHTML = rowsHTML(tech,1);
+document.querySelector('[data-list="templates"]').innerHTML = rowsHTML(templates,1);
+document.querySelector('[data-list="basics"]').innerHTML = rowsHTML(basics,1);
+
+document.querySelector('[data-featured]').innerHTML = featured.map(function(it,i){
+  return '<a class="card" href="'+it.u+'" target="_blank" rel="noopener">' +
+    '<span class="card-kicker">0'+(i+1)+' / '+it.k+'</span>' +
+    '<h3>'+it.n+'</h3>' +
+    '<p>'+it.d+'</p>' +
+    '<span class="card-go">'+domain(it.u)+' &#8599;</span>' +
+  '</a>';
+}).join("");
+
+document.querySelector('[data-weeks]').innerHTML = weeks.map(function(it){
+  return '<div class="week">' +
+    '<span class="w">'+it.w+'</span>' +
+    '<h3>'+it.t+'</h3>' +
+    '<p>'+it.d+'</p>' +
+  '</div>';
+}).join("");
+
+document.querySelector('[data-pits]').innerHTML = pits.map(function(it){
+  return '<div class="pit" data-reveal><span class="x">&#10005;</span><p><b>'+it.b+'</b> —— '+it.d+'</p></div>';
+}).join("");
+
+var total = galleries.length + featured.length + studios.length + tech.length + templates.length + basics.length;
+document.getElementById("srcCount").textContent = total;
+document.getElementById("footCount").textContent = total + " sources";
+
+/* reveal */
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){
+      e.target.classList.add("in");
+      io.unobserve(e.target);
+    }
+  });
+},{threshold:.12, rootMargin:"0px 0px -8% 0px"});
+
+document.querySelectorAll("[data-reveal]").forEach(function(el,i){
+  el.style.transitionDelay = (Math.min(i,5) * 55) + "ms";
+  io.observe(el);
+});
+
+/* hero spotlight */
+var hero = document.querySelector(".hero");
+hero.addEventListener("pointermove", function(e){
+  var r = hero.getBoundingClientRect();
+  hero.style.setProperty("--mx", ((e.clientX - r.left) / r.width * 100) + "%");
+  hero.style.setProperty("--my", ((e.clientY - r.top) / r.height * 100) + "%");
+});
+
+/* progress */
+var bar = document.getElementById("progress");
+window.addEventListener("scroll", function(){
+  var h = document.documentElement.scrollHeight - window.innerHeight;
+  bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + "%";
+}, {passive:true});
+
+/* copy all */
+document.getElementById("copyBtn").addEventListener("click", function(){
+  var lines = [];
+  document.querySelectorAll("a.name, .card h3").forEach(function(el){
+    var a = el.tagName === "A" ? el : el.closest("a");
+    var name = el.textContent.trim();
+    var desc = "";
+    if(el.tagName === "A"){
+      var p = el.parentElement.querySelector(".desc");
+      if(p) desc = p.textContent.trim();
+    }else{
+      var cp = a.querySelector("p");
+      if(cp) desc = cp.textContent.trim();
+    }
+    lines.push("- ["+name+"]("+a.href+")" + (desc ? " — " + desc : ""));
+  });
+  var text = "# 审美参考库\n\n" + lines.join("\n");
+  var toast = document.getElementById("toast");
+  var done = function(){
+    toast.textContent = "已复制 " + lines.length + " 条链接";
+    toast.classList.add("show");
+    setTimeout(function(){ toast.classList.remove("show"); }, 2200);
+  };
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done).catch(done);
+  }else{
+    var ta = document.createElement("textarea");
+    ta.value = text; document.body.appendChild(ta); ta.select();
+    try{ document.execCommand("copy"); }catch(e){}
+    document.body.removeChild(ta); done();
+  }
+});
+</script>
+</body>
+</html>

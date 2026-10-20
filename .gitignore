@@ -1,5 +1,6 @@
 .DS_Store
 Thumbs.db
 *.log
-_shot.py
-*.png
+_dl/
+_shots/
+*.zip
